@@ -13,7 +13,7 @@ public static class Run
     [FunctionName(nameof(RunPost))]
     public static async Task<IActionResult> RunPost(
         [HttpTrigger(AuthorizationLevel.Function,"post", Route = null)] HttpRequest req,
-        [Blob("{BLOB_NAME}/{sys.utcnow}.json", FileAccess.Write)] Stream outputStreamBlob,
+        [Blob("%BLOB_NAME%/{sys.utcnow}.json", FileAccess.Write)] Stream outputStreamBlob,
         ILogger log)
     {
         log.LogInformation("HTTP trigger function processed new item uploaded to the blob. done");
