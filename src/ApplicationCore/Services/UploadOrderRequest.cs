@@ -46,20 +46,15 @@ public class UploadOrderRequest: IUploadOrderRequest
         
         await using var client = new ServiceBusClient(_configuration.GetConnectionString("ServiceBusConnectionString"));
         await using var sender = client.CreateSender(_configuration.GetConnectionString("QueueName"));
-
-        var itemsContent = new StringContent(JsonSerializer.Serialize(items), Encoding.UTF8, "application/json");
+        
         try
         {
-            string messageBody = $"$10,000 order for bicycle parts from retailer Adventure Works.";
-            var message = new ServiceBusMessage(messageBody);
+          var message = new ServiceBusMessage(items.ToJson());
             await sender.SendMessageAsync(message);
         }
         catch (Exception e)
         {
-            await using var receiver = client.CreateReceiver(_configuration.GetConnectionString("QueueName"));
-            var message = await receiver.ReceiveMessageAsync();
-            await receiver.DeadLetterMessageAsync(message, $"reason: { message }", "unable to uploaded");
-            Console.WriteLine(e.Message);
+          Console.WriteLine(e.Message);
         }
 
     }
