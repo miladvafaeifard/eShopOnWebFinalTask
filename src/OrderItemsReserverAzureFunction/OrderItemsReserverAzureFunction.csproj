@@ -6,6 +6,7 @@
     </PropertyGroup>
     <ItemGroup>
         <PackageReference Include="Azure.Storage.Blobs" />
+        <PackageReference Include="Microsoft.Azure.WebJobs.Extensions.ServiceBus" />
         <PackageReference Include="Microsoft.Azure.WebJobs.Extensions.Storage" />
         <PackageReference Include="Microsoft.NET.Sdk.Functions" Version="4.1.1" />
     </ItemGroup>

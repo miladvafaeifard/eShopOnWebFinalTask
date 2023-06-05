@@ -16,6 +16,7 @@ using Microsoft.eShopWeb.Web;
 using Microsoft.eShopWeb.Web.Configuration;
 using Microsoft.eShopWeb.Web.HealthChecks;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
+using Microsoft.Extensions.Options;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -39,6 +40,14 @@ builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
                            .AddDefaultTokenProviders();
 
 builder.Services.AddScoped<ITokenClaimsService, IdentityTokenClaimService>();
+var functionAppConfigSection = builder.Configuration.GetRequiredSection(FunctionAppConfiguration.CONFIG_NAME);
+builder.Services.Configure<FunctionAppConfiguration>(functionAppConfigSection);
+
+builder.Services.AddScoped<IFunctionAppConfiguration>(ServiceProvider =>
+{
+  var functionAppConfigOptions = ServiceProvider.GetRequiredService<IOptions<FunctionAppConfiguration>>();
+  return functionAppConfigOptions.Value;
+});
 builder.Configuration.AddEnvironmentVariables();
 builder.Services.AddCoreServices(builder.Configuration);
 builder.Services.AddWebServices(builder.Configuration);

@@ -11,6 +11,7 @@
     <PackageVersion Include="Ardalis.Specification" Version="6.1.0" />
     <PackageVersion Include="Ardalis.ListStartupServices" Version="1.1.4" />
     <PackageVersion Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
+    <PackageVersion Include="Azure.Messaging.ServiceBus" Version="7.14.0" />
     <PackageVersion Include="Azure.Storage.Blobs" Version="12.16.0" />
     <PackageVersion Include="BlazorInputFile" Version="0.2.0" />
     <PackageVersion Include="Blazored.LocalStorage" Version="4.3.0" />
@@ -28,7 +29,9 @@
     <PackageVersion Include="Microsoft.AspNetCore.Identity.UI" Version="7.0.5" />
     <PackageVersion Include="Microsoft.AspNetCore.Mvc" Version="2.2.0" />
     <PackageVersion Include="Microsoft.Azure.WebJobs.Extensions.CosmosDB" Version="4.3.0" />
+    <PackageVersion Include="Microsoft.Azure.WebJobs.Extensions.ServiceBus" Version="5.10.0" />
     <PackageVersion Include="Microsoft.Azure.WebJobs.Extensions.Storage" Version="5.1.2" />
+    <PackageVersion Include="Microsoft.Extensions.Configuration" Version="7.0.0" />
     <PackageVersion Include="Microsoft.Extensions.Identity.Core" Version="7.0.5" />
     <PackageVersion Include="Microsoft.Extensions.Logging.Configuration" Version="7.0.0" />
     <PackageVersion Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="7.0.6" />
